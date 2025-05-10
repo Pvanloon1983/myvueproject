@@ -3,7 +3,7 @@ name: 🚀 Deploy Vue App to mijn.host
 on:
   push:
     branches:
-      - main
+      - main  # Of je actieve branch
 
 jobs:
   deploy:
@@ -17,15 +17,17 @@ jobs:
         run: npm install
 
       - name: 🛠️ Build Vue Project
-        run: npm run build  # Zorg dat dit 'dist/' genereert
+        run: npm run build  # Zorg ervoor dat dit de dist/ map aanmaakt
 
-      - name: 📤 Deploy via SFTP
+      - name: 📤 Deploy via SFTP (Auto Clean)
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          source: "./dist/"  # Dit is de gegenereerde map na build
-          target: "/domains/lesrisale.nl/public_html/"  # Pas aan naar jouw juiste pad
-          debug: true
+          source: "./dist/"
+          target: "/domains/lesrisale.nl/public_html/"
+          rm: true            # 💣 Verwijdert bestaande bestanden in target map
+          overwrite: true     # ✅ Overschrijft bestaande bestanden (extra zekerheid)
+          debug: true         # 🐞 Voor uitgebreide log-output
