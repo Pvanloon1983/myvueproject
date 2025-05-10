@@ -21,4 +21,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           source: "./dist/"  # Of een andere map die je wilt uploaden
-          target: "/domains/leesrisale.nl/public_html"  # Pas dit aan naar de juiste map
+          target: "/domains/leesrisale.nl/public_html/"  # Pas dit aan naar de juiste map
