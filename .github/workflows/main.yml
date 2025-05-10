@@ -25,5 +25,6 @@ jobs:
         username: ${{ secrets.SFTP_USER }}
         port: ${{ secrets.SFTP_PORT }}
         password: ${{ secrets.SFTP_PASSWORD }}
-        source: "dist/*"
+        source: "dist/**"   # Selects only the content inside dist, not the folder itself
         target: "/home/u173510456/domains/moccasin-ape-145176.hostingersite.com/public_html/"
+        strip_components: 1 # Removes the 'dist' folder level during upload
