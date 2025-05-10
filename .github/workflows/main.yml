@@ -24,6 +24,6 @@ jobs:
         host: ${{ secrets.SFTP_HOST }}
         username: ${{ secrets.SFTP_USER }}
         port: ${{ secrets.SFTP_PORT }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        password: ${{ secrets.SFTP_PASSWORD }}
         source: "dist/*"
         target: "/home/u173510456/domains/moccasin-ape-145176.hostingersite.com/public_html/"
