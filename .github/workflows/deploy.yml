@@ -27,7 +27,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           source: "./dist/"
-          target: "/domains/lesrisale.nl/public_html/"
+          target: "/domains/leesrisale.nl/public_html/"
           rm: true            # 💣 Verwijdert bestaande bestanden in target map
           overwrite: true     # ✅ Overschrijft bestaande bestanden (extra zekerheid)
           debug: true         # 🐞 Voor uitgebreide log-output
